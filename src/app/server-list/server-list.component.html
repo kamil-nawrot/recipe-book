@@ -1,5 +1,5 @@
 <section class="container card">
   <app-server></app-server>
   <app-server></app-server>
-  <button class="btn btn-primary" [disabled]="isNewServerAllowed">Add server</button>
+  <button class="btn btn-primary" [disabled]="!isNewServerAllowed">Add server</button>
 </section>

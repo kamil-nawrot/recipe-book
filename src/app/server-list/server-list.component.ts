@@ -16,7 +16,7 @@ export class ServerListComponent implements OnInit {
   constructor() {
     setInterval(() => {
       this.toggleIsNewServerAllowed()
-    }, 1000)
+    }, 2000)
   }
 
   ngOnInit(): void {

@@ -1,5 +1,8 @@
 <section class="container card">
   <app-server></app-server>
   <app-server></app-server>
-  <button class="btn btn-primary" [disabled]="!isNewServerAllowed">Add server</button>
+  <p> {{ serverCreationStatus }} </p>
+  <label class="form-label">Server name:</label>
+  <input class="form-control" (input)="onUpdateServerName($event)" />
+  <button class="btn btn-primary" [disabled]="!isNewServerAllowed" (click)="onCreateServer()">Add server</button>
 </section>

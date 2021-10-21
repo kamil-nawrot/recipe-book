@@ -1,0 +1,11 @@
+<article class="username-input card">
+  <section class="card-body">
+    <h5 class="card-title">Enter your username</h5>
+    <p class="card-text">Please enter your username in the input below.</p>
+
+    <h2 class="text-black">Your username: {{ username }}</h2>
+    <input class="form-control" [(ngModel)]="username" (input)="onUsernameChange($event)" />
+    <button class="btn btn-danger" [disabled]="isUsernameEmpty" (click)="onReset()">Reset</button>
+
+  </section>
+</article>

@@ -9,7 +9,7 @@ export class ServerListComponent implements OnInit {
 
   public isNewServerAllowed = false
   public serverCreationStatus = "No servers are being created"
-  public serverName = ''
+  public serverName = 'Server name...'
 
   toggleIsNewServerAllowed() {
     this.isNewServerAllowed = !this.isNewServerAllowed
@@ -22,7 +22,7 @@ export class ServerListComponent implements OnInit {
   }
 
   onCreateServer(): void {
-    this.serverCreationStatus = 'Server was created!'
+    this.serverCreationStatus = 'Server (' + this.serverName + ') was created!'
   }
 
   onUpdateServerName(event: Event) {

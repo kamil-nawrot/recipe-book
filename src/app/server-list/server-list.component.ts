@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServerListComponent implements OnInit {
 
   public isNewServerAllowed = false
-  public serverCreationStatus = "No servers are being created"
+  public serverCreationStatus = false
   public serverName = 'Server name...'
 
   toggleIsNewServerAllowed() {
@@ -22,7 +22,7 @@ export class ServerListComponent implements OnInit {
   }
 
   onCreateServer(): void {
-    this.serverCreationStatus = 'Server (' + this.serverName + ') was created!'
+    this.serverCreationStatus = true
   }
 
   onUpdateServerName(event: Event) {

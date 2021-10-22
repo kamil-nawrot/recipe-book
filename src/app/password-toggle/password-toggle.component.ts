@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './password-toggle.component.html',
   styleUrls: ['./password-toggle.component.css']
 })
-export class PasswordToggleComponent implements OnInit {
+export class PasswordToggleComponent {
 
-  constructor() { }
+  isPasswordVisible = false
+  togglePasswordMessage = "Show password"
 
-  ngOnInit(): void {
+  onTogglePassword() {
+    this.isPasswordVisible = !this.isPasswordVisible
+    this.togglePasswordMessage = this.isPasswordVisible ? "Hide password" : "Show password"
   }
 
 }

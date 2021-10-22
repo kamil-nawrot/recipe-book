@@ -1,3 +1,8 @@
-<section [ngStyle]="{color: getColor()}" class="alert alert-primary" role="alert">
+<section
+  [ngStyle]="{color: getColor()}"
+  [ngClass]="{'alert-success': serverStatus === 'online', 'alert-danger': serverStatus === 'offline'}"
+  class="alert alert-primary"
+  role="alert"
+>
   Server with ID {{ serverId }} is {{ serverStatus }}
 </section>

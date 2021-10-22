@@ -9,6 +9,13 @@ import { SuccessAlertComponent } from './playground/success-alert/success-alert.
 import { ServerListComponent } from './playground/server-list/server-list.component';
 import { UsernameInputComponent } from './playground/username-input/username-input.component';
 import { PasswordToggleComponent } from './playground/password-toggle/password-toggle.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/shopping-list-item.component';
+import { ShoppingListInputComponent } from './shopping-list/shopping-list-input/shopping-list-input.component';
+import { HeaderComponent } from './header/header.component';
+import { RecipeBookComponent } from './recipe-book/recipe-book.component';
+import { RecipeBookItemComponent } from './recipe-book/recipe-book-item/recipe-book-item.component';
+import { RecipeBookDetailsComponent } from './recipe-book/recipe-book-details/recipe-book-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +25,14 @@ import { PasswordToggleComponent } from './playground/password-toggle/password-t
     SuccessAlertComponent,
     ServerListComponent,
     UsernameInputComponent,
-    PasswordToggleComponent
+    PasswordToggleComponent,
+    ShoppingListComponent,
+    ShoppingListItemComponent,
+    ShoppingListInputComponent,
+    HeaderComponent,
+    RecipeBookComponent,
+    RecipeBookItemComponent,
+    RecipeBookDetailsComponent
   ],
   imports: [
     BrowserModule,

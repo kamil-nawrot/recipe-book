@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServerListComponent implements OnInit {
 
+  public serverList = ["DEV Server", "TEST1 Server"]
+
   public isNewServerAllowed = false
   public serverCreationStatus = false
   public serverName = 'Server name...'
@@ -23,6 +25,7 @@ export class ServerListComponent implements OnInit {
 
   onCreateServer(): void {
     this.serverCreationStatus = true
+    this.serverList.push(this.serverName)
   }
 
   onUpdateServerName(event: Event) {

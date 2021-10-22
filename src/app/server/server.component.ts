@@ -19,7 +19,7 @@ export class ServerComponent implements OnInit {
     this._serverStatus = status
   }
 
-  public serverId = 10
+  public serverId = Math.floor(Math.random() * 1000)
   private _serverStatus = ''
 
   constructor() {

@@ -1,6 +1,5 @@
 <section class="container card">
-  <app-server></app-server>
-  <app-server></app-server>
+  <app-server *ngFor="let server of serverList"></app-server>
   <p *ngIf="serverCreationStatus; else noServer"> Server ({{ serverName }}) was created </p>
   <ng-template #noServer><p> No server was created </p></ng-template>
   <label class="form-label">Server name:</label>

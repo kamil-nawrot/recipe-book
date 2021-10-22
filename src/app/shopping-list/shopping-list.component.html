@@ -2,6 +2,10 @@
   <section class="col-md-10">
     <app-shopping-list-input></app-shopping-list-input>
     <hr />
-    <app-shopping-list-item></app-shopping-list-item>
+    <ul class="list-group">
+      <a class="list-group-item" style="cursor: pointer" *ngFor="let ingredient of ingredients">
+        {{ ingredient.name }} ({{ ingredient.amount + ingredient.unit}})
+      </a>
+    </ul>
   </section>
 </article>

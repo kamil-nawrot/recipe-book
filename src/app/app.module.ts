@@ -14,8 +14,9 @@ import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/sh
 import { ShoppingListInputComponent } from './shopping-list/shopping-list-input/shopping-list-input.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeBookComponent } from './recipe-book/recipe-book.component';
-import { RecipeBookItemComponent } from './recipe-book/recipe-book-item/recipe-book-item.component';
+import { RecipeBookListComponent } from './recipe-book/recipe-book-list/recipe-book-list.component';
 import { RecipeBookDetailsComponent } from './recipe-book/recipe-book-details/recipe-book-details.component';
+import { RecipeBookItemComponent } from './recipe-book/recipe-book-item/recipe-book-item.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,9 @@ import { RecipeBookDetailsComponent } from './recipe-book/recipe-book-details/re
     ShoppingListInputComponent,
     HeaderComponent,
     RecipeBookComponent,
-    RecipeBookItemComponent,
-    RecipeBookDetailsComponent
+    RecipeBookListComponent,
+    RecipeBookDetailsComponent,
+    RecipeBookItemComponent
   ],
   imports: [
     BrowserModule,

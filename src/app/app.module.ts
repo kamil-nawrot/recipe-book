@@ -17,6 +17,8 @@ import { RecipeBookComponent } from './recipe-book/recipe-book.component';
 import { RecipeBookListComponent } from './recipe-book/recipe-book-list/recipe-book-list.component';
 import { RecipeBookDetailsComponent } from './recipe-book/recipe-book-details/recipe-book-details.component';
 import { RecipeBookItemComponent } from './recipe-book/recipe-book-item/recipe-book-item.component';
+import { ServerCockpitComponent } from './playground/server-cockpit/server-cockpit.component';
+import { ServerElementComponent } from './playground/server-element/server-element.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { RecipeBookItemComponent } from './recipe-book/recipe-book-item/recipe-b
     RecipeBookComponent,
     RecipeBookListComponent,
     RecipeBookDetailsComponent,
-    RecipeBookItemComponent
+    RecipeBookItemComponent,
+    ServerCockpitComponent,
+    ServerElementComponent
   ],
   imports: [
     BrowserModule,

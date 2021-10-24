@@ -1,4 +1,3 @@
 <section class="alert" [ngClass]="{ 'alert-danger': element.type === 'server', 'alert-info': element.type === 'server-blueprint' }">
-  <h4 class="fw-bold"> {{ element.name }} </h4>
-  <p class="fw-light"> {{ element.description }} </p>
+  <ng-content></ng-content>
 </section>

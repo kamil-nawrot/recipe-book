@@ -10,5 +10,8 @@
 
 <main class="container">
   <app-server-cockpit (addServer)="onServerAdded($event)" (addBlueprint)="onBlueprintAdded($event)"></app-server-cockpit>
-  <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement"></app-server-element>
+  <app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement">
+    <h4 class="fw-bold"> {{ serverElement.name }} </h4>
+    <p class="fw-light"> {{ serverElement.description }} </p>
+  </app-server-element>
 </main>

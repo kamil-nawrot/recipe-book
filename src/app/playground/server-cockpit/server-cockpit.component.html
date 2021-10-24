@@ -7,7 +7,7 @@
       <form>
         <div class="mb-3">
           <label for="server-name" class="form-label">Server name</label>
-          <input id="server-name" name="server-name" type="text" class="form-control" [(ngModel)]="newServerName" />
+          <input id="server-name" name="server-name" type="text" class="form-control" #serverNameInput />
         </div>
         <div class="mb-3">
           <label for="server-desc" class="form-label">Server description</label>
@@ -15,8 +15,8 @@
         </div>
         <hr />
         <section class="btn-group">
-          <button class="btn btn-primary" (click)="onAddServer()">Add server</button>
-          <button class="btn btn-secondary" (click)="onAddBlueprint()">Add server blueprint</button>
+          <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">Add server</button>
+          <button class="btn btn-secondary" (click)="onAddBlueprint(serverNameInput)">Add server blueprint</button>
         </section>
       </form>
     </section>

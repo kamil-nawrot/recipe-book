@@ -8,20 +8,18 @@ import {Server} from "../shared/server.model";
 })
 export class ServerCockpitComponent implements OnInit {
 
-  newServerName = "test"
   newServerDescription = ""
 
   @Output() addServer = new EventEmitter<Server>()
   @Output() addBlueprint = new EventEmitter<Server>()
 
-  onAddServer() {
-    console.log(this.newServerName)
+  onAddServer(serverNameInput: HTMLInputElement) {
     console.log(this.newServerDescription)
-    this.addServer.emit(new Server("server", this.newServerName, this.newServerDescription))
+    this.addServer.emit(new Server("server", serverNameInput.value, this.newServerDescription))
   }
 
-  onAddBlueprint() {
-    this.addBlueprint.emit(new Server("server-blueprint", this.newServerName, this.newServerDescription))
+  onAddBlueprint(serverNameInput: HTMLInputElement) {
+    this.addBlueprint.emit(new Server("server-blueprint", serverNameInput.value, this.newServerDescription))
   }
 
   constructor() { }

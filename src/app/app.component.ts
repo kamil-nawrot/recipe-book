@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Server} from "./playground/shared/server.model";
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,13 @@ export class AppComponent {
   serverElements = [
     { type: 'server', name: 'Test Server', description: 'Server for testing purposes.' }
   ]
+
+  onServerAdded(serverData: Server) {
+    this.serverElements.push(serverData)
+  }
+
+  onBlueprintAdded(blueprintData: Server) {
+    this.serverElements.push(blueprintData)
+  }
 
 }

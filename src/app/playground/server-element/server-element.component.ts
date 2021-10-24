@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Server} from "../shared/server.model";
 
 @Component({
   selector: 'app-server-element',
@@ -7,12 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ServerElementComponent {
 
-  @Input()
-  // @ts-ignore
-  element: { type: string, name: string, description: string }
+  @Input() element: Server = new Server("server", "", "")
 
   constructor() {
-
   }
 
 }

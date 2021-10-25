@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InactiveUsersComponent implements OnInit {
 
+  inactiveUsers: string[] = []
+
   constructor() { }
 
   ngOnInit(): void {

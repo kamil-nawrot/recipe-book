@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActiveUsersComponent implements OnInit {
 
-  constructor() { }
+  activeUsers: string[] = []
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+
   }
 
 }

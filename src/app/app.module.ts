@@ -25,6 +25,7 @@ import { EvenNumberComponent } from './playground/number-game/even-number/even-n
 import { NumberGameComponent } from './playground/number-game/number-game.component';
 import {BasicHighlightDirective} from "./playground/basic-highlight/basic-highlight.directive";
 import { BetterHighlightDirective } from './playground/basic-highlight/better-highlight.directive';
+import { UnlessDirective } from './playground/unless/unless.directive';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { BetterHighlightDirective } from './playground/basic-highlight/better-hi
     EvenNumberComponent,
     NumberGameComponent,
     BasicHighlightDirective,
-    BetterHighlightDirective
+    BetterHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

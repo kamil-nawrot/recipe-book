@@ -5,7 +5,7 @@ import {Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Rendere
 })
 export class BetterHighlightDirective {
 
-  @Input() color = "yellow"
+  @Input("appBetterHighlight") color = "yellow"
 
   @HostBinding("style.backgroundColor") backgroundColor: string = "inherit"
 

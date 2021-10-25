@@ -4,8 +4,6 @@
   </section>
   <hr />
   <section class="row">
-    <app-account></app-account>
-    <app-account></app-account>
-    <app-account></app-account>
+    <app-account *ngFor="let account of accounts; index as i" [account]="account" [id]="i"></app-account>
   </section>
 </main>

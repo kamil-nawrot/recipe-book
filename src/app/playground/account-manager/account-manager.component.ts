@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Account} from "./account.model";
+import {AccountsService} from "./accounts.service";
 
 @Component({
   selector: 'app-account-manager',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountManagerComponent implements OnInit {
 
-  constructor() { }
+  accounts: Account[] = []
+
+  constructor(private accountsService: AccountsService) { }
 
   ngOnInit(): void {
+    this.accounts = this.accountsService.getAccounts()
   }
 
 }

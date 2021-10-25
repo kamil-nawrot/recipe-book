@@ -3,12 +3,16 @@
   <section class="card-body">
     <p>Enter the account details below and click <strong>Add</strong> button</p>
     <label for="account-name" class="form-label">Account name</label>
-    <input type="text" id="account-name" class="form-control" />
+    <input type="text" id="account-name" class="form-control" #nameInput />
     <label for="account-status" class="form-label">Account status</label>
-    <select id="account-status" name="account-status" class="form-select">
+    <select id="account-status" name="account-status" class="form-select" #statusInput>
       <option value="active" selected> Active </option>
       <option value="inactive"> Inactive </option>
       <option value="unknown"> Unknown </option>
     </select>
+    <hr />
+    <footer class="card-link">
+      <button class="btn btn-success" (click)="onAddAccount(nameInput.value, statusInput.value)">Add account</button>
+    </footer>
   </section>
 </section>

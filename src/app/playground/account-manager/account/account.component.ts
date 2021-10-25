@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Account} from "../account.model";
+import {AccountsService} from "../accounts.service";
 
 @Component({
   selector: 'app-account',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountComponent implements OnInit {
 
-  constructor() { }
+  // @ts-ignore
+  @Input() account: Account
+  @Input() id: number = -1
+
+  constructor(private accountsService: AccountsService) { }
 
   ngOnInit(): void {
+  }
+
+  onChangeStatus(newStatus: string, id: number) {
+    this.accountsService.changeStatus(id, newStatus)
   }
 
 }

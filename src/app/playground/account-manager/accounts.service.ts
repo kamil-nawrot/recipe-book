@@ -12,7 +12,11 @@ export class AccountsService {
     new Account("Jane Doe", "inactive")
   ]
 
-  constructor(private accountsService: AccountsService) { }
+  constructor() { }
+
+  getAccounts(): Account[] {
+    return this.accounts
+}
 
   addAccount(account: Account) {
     this.accounts.push(account)
@@ -21,6 +25,5 @@ export class AccountsService {
   changeStatus(id: number, newStatus: string) {
     this.accounts[id].status = newStatus
   }
-
 
 }

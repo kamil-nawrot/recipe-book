@@ -23,6 +23,7 @@ import { GameControlComponent } from './playground/number-game/game-control/game
 import { OddNumberComponent } from './playground/number-game/odd-number/odd-number.component';
 import { EvenNumberComponent } from './playground/number-game/even-number/even-number.component';
 import { NumberGameComponent } from './playground/number-game/number-game.component';
+import {BasicHighlightDirective} from "./playground/basic-highlight/basic-highlight.directive";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NumberGameComponent } from './playground/number-game/number-game.compon
     GameControlComponent,
     OddNumberComponent,
     EvenNumberComponent,
-    NumberGameComponent
+    NumberGameComponent,
+    BasicHighlightDirective
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { AccountManagerComponent } from './playground/account-manager/account-manager.component';
 import { AddAccountComponent } from './playground/account-manager/add-account/add-account.component';
 import { AccountComponent } from './playground/account-manager/account/account.component';
+import { UserManagerComponent } from './playground/user-manager/user-manager.component';
+import { ActiveUsersComponent } from './playground/user-manager/active-users/active-users.component';
+import { InactiveUsersComponent } from './playground/user-manager/inactive-users/inactive-users.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { AccountComponent } from './playground/account-manager/account/account.c
     DropdownDirective,
     AccountManagerComponent,
     AddAccountComponent,
-    AccountComponent
+    AccountComponent,
+    UserManagerComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,

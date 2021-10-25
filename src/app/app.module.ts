@@ -19,6 +19,9 @@ import { RecipeBookDetailsComponent } from './recipe-book/recipe-book-details/re
 import { RecipeBookItemComponent } from './recipe-book/recipe-book-item/recipe-book-item.component';
 import { ServerCockpitComponent } from './playground/server-cockpit/server-cockpit.component';
 import { ServerElementComponent } from './playground/server-element/server-element.component';
+import { GameControlComponent } from './playground/number-game/game-control/game-control.component';
+import { OddNumberComponent } from './playground/number-game/odd-number/odd-number.component';
+import { EvenNumberComponent } from './playground/number-game/even-number/even-number.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { ServerElementComponent } from './playground/server-element/server-eleme
     RecipeBookDetailsComponent,
     RecipeBookItemComponent,
     ServerCockpitComponent,
-    ServerElementComponent
+    ServerElementComponent,
+    GameControlComponent,
+    OddNumberComponent,
+    EvenNumberComponent
   ],
   imports: [
     BrowserModule,

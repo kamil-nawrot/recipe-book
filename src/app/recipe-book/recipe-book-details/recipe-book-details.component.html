@@ -1,33 +1,35 @@
-<section class="row">
-  <div class="col-xs-12">
-    <img class="img-thumbnail" src="" alt="">
-  </div>
-</section>
-<section class="row">
-  <div class="col-xs-12">
-    <h1>Recipe Name</h1>
-    <p>Description</p>
-  </div>
-</section>
-<section class="row">
-  <div class="col-xs-12">
-    <h2>Ingredients:</h2>
-  </div>
-</section>
-<hr />
-<section class="row">
-  <div class="col-xs-12">
-    <div class="btn-group">
-      <button class="btn btn-primary dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Manage recipe
-      </button>
-      <div class="dropdown">
-      <ul class="dropdown-menu">
-        <li class="dropdown-item"><a href="#">Add Ingredients to Shopping List</a></li>
-        <li class="dropdown-item"><a href="#">Edit Recipe</a></li>
-        <li class="dropdown-item"><a href="#">Delete Recipe</a></li>
-      </ul>
+<article *ngIf="recipe">
+  <section class="row">
+    <div class="col-xs-12">
+      <img class="img-thumbnail" src="{{ recipe.imagePath }}}" alt="">
+    </div>
+  </section>
+  <section class="row">
+    <div class="col-xs-12">
+      <h1>{{ recipe.name }}</h1>
+      <p>{{ recipe.description }}</p>
+    </div>
+  </section>
+  <section class="row">
+    <div class="col-xs-12">
+      <h2>Ingredients:</h2>
+    </div>
+  </section>
+  <hr />
+  <section class="row">
+    <div class="col-xs-12">
+      <div class="btn-group">
+        <button class="btn btn-primary dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Manage recipe
+        </button>
+        <div class="dropdown">
+        <ul class="dropdown-menu">
+          <li class="dropdown-item"><a href="#">Add Ingredients to Shopping List</a></li>
+          <li class="dropdown-item"><a href="#">Edit Recipe</a></li>
+          <li class="dropdown-item"><a href="#">Delete Recipe</a></li>
+        </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</article>

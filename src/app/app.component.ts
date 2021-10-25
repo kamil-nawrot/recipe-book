@@ -8,24 +8,16 @@ import {Server} from "./playground/shared/server.model";
 })
 export class AppComponent {
 
-  // serverElements = [
-  //   { type: 'server', name: 'Test Server', description: 'Server for testing purposes.' }
-  // ]
-  //
-  // onServerAdded(serverData: Server) {
-  //   this.serverElements.push(serverData)
-  // }
-  //
-  // onBlueprintAdded(blueprintData: Server) {
-  //   this.serverElements.push(blueprintData)
-  // }
+  serverElements = [
+    { type: 'server', name: 'Test Server', description: 'Server for testing purposes.' }
+  ]
 
-  evenNumbers: number[] = []
-  oddNumbers: number[] = []
+  onServerAdded(serverData: Server) {
+    this.serverElements.push(serverData)
+  }
 
-  onValueChange(value: number) {
-    console.log("Current value: " + value)
-    value % 2 === 0 ? this.evenNumbers.push(value) : this.oddNumbers.push(value)
+  onBlueprintAdded(blueprintData: Server) {
+    this.serverElements.push(blueprintData)
   }
 
 }

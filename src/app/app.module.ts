@@ -22,6 +22,7 @@ import { ServerElementComponent } from './playground/server-element/server-eleme
 import { GameControlComponent } from './playground/number-game/game-control/game-control.component';
 import { OddNumberComponent } from './playground/number-game/odd-number/odd-number.component';
 import { EvenNumberComponent } from './playground/number-game/even-number/even-number.component';
+import { NumberGameComponent } from './playground/number-game/number-game.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { EvenNumberComponent } from './playground/number-game/even-number/even-n
     ServerElementComponent,
     GameControlComponent,
     OddNumberComponent,
-    EvenNumberComponent
+    EvenNumberComponent,
+    NumberGameComponent
   ],
   imports: [
     BrowserModule,

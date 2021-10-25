@@ -8,22 +8,4 @@
 <!--  </div>-->
 <!--</main>-->
 
-<main class="container">
-  <app-game-control (valueChange)="onValueChange($event)"></app-game-control>
-  <section class="row">
-    <div class="col card">
-      <h1 class="text-center text-uppercase">Even numbers</h1>
-      <hr />
-      <div class="flex-row">
-        <app-even-number *ngFor="let even of evenNumbers" [number]="even"></app-even-number>
-      </div>
-    </div>
-    <div class="col card">
-      <h1 class="text-center text-uppercase">Odd numbers</h1>
-      <hr />
-      <div class="flex-row align-content-stretch">
-        <app-odd-number *ngFor="let odd of oddNumbers" [number]="odd"></app-odd-number>
-      </div>
-    </div>
-  </section>
-</main>
+<app-number-game></app-number-game>

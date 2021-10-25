@@ -8,6 +8,8 @@ import {interval} from "rxjs";
 })
 export class GameControlComponent implements OnInit {
 
+  isGameStarted = false
+
   intervalId = 0
   counterValue = 0
   @Output() valueChange = new EventEmitter<number>()
@@ -18,6 +20,7 @@ export class GameControlComponent implements OnInit {
   }
 
   onStartGame() {
+    this.isGameStarted = true
     this.intervalId = setInterval(() => {
       this.counterValue++
       this.valueChange.emit(this.counterValue)
@@ -25,6 +28,7 @@ export class GameControlComponent implements OnInit {
   }
 
   onPauseGame() {
+    this.isGameStarted = false
     clearInterval(this.intervalId)
   }
 

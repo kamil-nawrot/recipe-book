@@ -20,11 +20,12 @@ export class AppComponent {
   //   this.serverElements.push(blueprintData)
   // }
 
-  evenNumbers = [2, 4, 6, 8]
-  oddNumbers = [1, 3, 5, 7, 9]
+  evenNumbers: number[] = []
+  oddNumbers: number[] = []
 
   onValueChange(value: number) {
     console.log("Current value: " + value)
+    value % 2 === 0 ? this.evenNumbers.push(value) : this.oddNumbers.push(value)
   }
 
 }

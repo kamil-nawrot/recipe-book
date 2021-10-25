@@ -1,8 +1,8 @@
 <article class="card">
   <section class="row">
     <div class="col-xs-12 btn-group">
-      <button class="btn btn-primary" (click)="onStartGame()">Start game</button>
-      <button class="btn btn-danger" (click)="onPauseGame()">Pause game</button>
+      <button class="btn btn-primary" (click)="onStartGame()" [disabled]="isGameStarted">Start game</button>
+      <button class="btn btn-danger" (click)="onPauseGame()" [disabled]="!isGameStarted">Pause game</button>
     </div>
   </section>
   <section class="row">

@@ -10,7 +10,7 @@ export class GameControlComponent implements OnInit {
 
   intervalId = 0
   counterValue = 0
-  @Output() counterValueEmitter = new EventEmitter<number>()
+  @Output() valueChange = new EventEmitter<number>()
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class GameControlComponent implements OnInit {
   onStartGame() {
     this.intervalId = setInterval(() => {
       this.counterValue++
-      this.counterValueEmitter.emit(this.counterValue)
+      this.valueChange.emit(this.counterValue)
     }, 100)
   }
 

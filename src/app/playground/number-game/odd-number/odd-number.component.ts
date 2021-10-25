@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-odd-number',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OddNumberComponent implements OnInit {
 
-  oddNumbers = [1, 3, 5, 7, 9]
+  @Input() number: number = 0
 
   constructor() { }
 

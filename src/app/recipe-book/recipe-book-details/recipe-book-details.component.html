@@ -1,7 +1,7 @@
 <article *ngIf="recipe">
   <section class="row">
     <div class="col-xs-12">
-      <img class="img-thumbnail" src="{{ recipe.imagePath }}}" alt="">
+      <img class="img-thumbnail" [src]="recipe.imagePath" alt="">
     </div>
   </section>
   <section class="row">

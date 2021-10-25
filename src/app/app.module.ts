@@ -26,6 +26,7 @@ import { NumberGameComponent } from './playground/number-game/number-game.compon
 import {BasicHighlightDirective} from "./playground/basic-highlight/basic-highlight.directive";
 import { BetterHighlightDirective } from './playground/basic-highlight/better-highlight.directive';
 import { UnlessDirective } from './playground/unless/unless.directive';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { UnlessDirective } from './playground/unless/unless.directive';
     NumberGameComponent,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

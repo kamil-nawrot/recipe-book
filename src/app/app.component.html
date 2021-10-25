@@ -1,11 +1,9 @@
-<!--<app-header></app-header>-->
-<!--<main class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-12">-->
-<!--      <app-recipe-book></app-recipe-book>-->
-<!--      <app-shopping-list></app-shopping-list>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</main>-->
-
-<app-number-game></app-number-game>
+<app-header (pageChange)="onPageChange($event)"></app-header>
+<main class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-recipe-book *ngIf="currentPage === 'recipes'"></app-recipe-book>
+      <app-shopping-list *ngIf="currentPage === 'shopping-list'"></app-shopping-list>
+    </div>
+  </div>
+</main>

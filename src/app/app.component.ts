@@ -8,6 +8,11 @@ import {Server} from "./playground/shared/server.model";
 })
 export class AppComponent {
 
+  currentPage = 'recipes'
+  onPageChange(page: string) {
+    this.currentPage = page
+  }
+
   serverElements = [
     { type: 'server', name: 'Test Server', description: 'Server for testing purposes.' }
   ]

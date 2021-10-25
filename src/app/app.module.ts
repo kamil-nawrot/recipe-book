@@ -27,6 +27,9 @@ import {BasicHighlightDirective} from "./playground/basic-highlight/basic-highli
 import { BetterHighlightDirective } from './playground/basic-highlight/better-highlight.directive';
 import { UnlessDirective } from './playground/unless/unless.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { AccountManagerComponent } from './playground/account-manager/account-manager.component';
+import { AddAccountComponent } from './playground/account-manager/add-account/add-account.component';
+import { AccountComponent } from './playground/account-manager/account/account.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { DropdownDirective } from './shared/dropdown.directive';
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
+    AccountManagerComponent,
+    AddAccountComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

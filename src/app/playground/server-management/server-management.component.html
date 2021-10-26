@@ -2,7 +2,7 @@
   <div class="row navigation">
     <div class="col-xs-12">
       <ul class="nav nav-tabs">
-        <li class="nav-item" role="presentation" routerLinkActive="active"><a class="nav-link" routerLink="/">Home</a></li>
+        <li class="nav-item" role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a class="nav-link" routerLink="/">Home</a></li>
         <li class="nav-item" role="presentation" routerLinkActive="active"><a class="nav-link" routerLink="/servers">Servers</a></li>
         <li class="nav-item" role="presentation" routerLinkActive="active"><a class="nav-link" routerLink="/users">Users</a></li>
       </ul>

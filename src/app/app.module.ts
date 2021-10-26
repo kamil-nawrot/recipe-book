@@ -35,6 +35,7 @@ import { ActiveUsersComponent } from './playground/user-manager/active-users/act
 import { InactiveUsersComponent } from './playground/user-manager/inactive-users/inactive-users.component';
 import {UsersService} from "./playground/user-manager/users.service";
 import {CounterService} from "./playground/user-manager/counter.service";
+import {ShoppingListService} from "./shopping-list/shopping-list.service";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,7 @@ import {CounterService} from "./playground/user-manager/counter.service";
     BrowserModule,
     FormsModule
   ],
-  providers: [UsersService, CounterService],
+  providers: [UsersService, CounterService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

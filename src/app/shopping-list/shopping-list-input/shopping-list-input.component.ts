@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {Ingredient} from "../../shared/models/ingredient.model";
 import {LoggingService} from "../../shared/logging.service";
+import {ShoppingListService} from "../shopping-list.service";
 
 @Component({
   selector: 'app-shopping-list-input',
@@ -16,9 +17,7 @@ export class ShoppingListInputComponent implements OnInit {
   // @ts-ignore
   @ViewChild('unitInput') unitInput: ElementRef
 
-  @Output() addIngredient = new EventEmitter<Ingredient>()
-
-  constructor(private loggingService: LoggingService) { }
+  constructor(private shoppingListService: ShoppingListService, private loggingService: LoggingService) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +29,7 @@ export class ShoppingListInputComponent implements OnInit {
       this.unitInput.nativeElement.value
     )
 
-    this.addIngredient.emit(ingredient)
+    this.shoppingListService.addIngredient(ingredient)
     this.loggingService.logNewIngredient(ingredient)
   }
 

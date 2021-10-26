@@ -1,5 +1,5 @@
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let activeUser of activeUsers">
-    {{ activeUser }} | <a> Set as inactive </a>
+  <li class="list-group-item" *ngFor="let activeUser of activeUsers; index as i">
+    {{ activeUser }} <a class="btn btn-link" (click)="onChangeStatus(i)"> Set as inactive </a>
   </li>
 </ul>

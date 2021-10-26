@@ -33,6 +33,8 @@ import { AccountComponent } from './playground/account-manager/account/account.c
 import { UserManagerComponent } from './playground/user-manager/user-manager.component';
 import { ActiveUsersComponent } from './playground/user-manager/active-users/active-users.component';
 import { InactiveUsersComponent } from './playground/user-manager/inactive-users/inactive-users.component';
+import {UsersService} from "./playground/user-manager/users.service";
+import {CounterService} from "./playground/user-manager/counter.service";
 
 @NgModule({
   declarations: [
@@ -72,7 +74,7 @@ import { InactiveUsersComponent } from './playground/user-manager/inactive-users
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UsersService, CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

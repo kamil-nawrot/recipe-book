@@ -22,5 +22,10 @@ export class ShoppingListService {
     this.ingredientsChanged.emit(this.getIngredients())
   }
 
+  addIngredientsFromRecipe(ingredients: Ingredient[]) {
+    this.ingredients = this.ingredients.concat(ingredients)
+    this.ingredientsChanged.emit(this.getIngredients())
+  }
+
   constructor() { }
 }

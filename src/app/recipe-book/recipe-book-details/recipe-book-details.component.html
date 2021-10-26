@@ -13,6 +13,11 @@
   <section class="row">
     <div class="col-xs-12">
       <h2>Ingredients:</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+          {{ ingredient.name }} | {{ingredient.amount }}{{ ingredient.unit }}
+        </li>
+      </ul>
     </div>
   </section>
   <hr />
@@ -24,7 +29,7 @@
             Manage recipe
           </button>
           <ul class="dropdown-menu" aria-labelledby="menageRecipeDropdown">
-            <li class="dropdown-item"><a href="#">Add Ingredients to Shopping List</a></li>
+            <li class="dropdown-item"><a class="btn btn-link" (click)="onAddToShoppingList()">Add Ingredients to Shopping List</a></li>
             <li class="dropdown-item"><a href="#">Edit Recipe</a></li>
             <li class="dropdown-item"><a href="#">Delete Recipe</a></li>
           </ul>

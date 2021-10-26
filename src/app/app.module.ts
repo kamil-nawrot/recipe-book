@@ -36,6 +36,13 @@ import { InactiveUsersComponent } from './playground/user-manager/inactive-users
 import {UsersService} from "./playground/user-manager/users.service";
 import {CounterService} from "./playground/user-manager/counter.service";
 import {ShoppingListService} from "./shopping-list/shopping-list.service";
+import { ServerManagementComponent } from './playground/server-management/server-management.component';
+import {HomeComponent} from "./playground/server-management/home/home.component";
+import {ServersComponent} from "./playground/server-management/servers/servers.component";
+import {UsersComponent} from "./playground/server-management/users/users.component";
+import {UserComponent} from "./playground/server-management/users/user/user.component";
+import {EditServerComponent} from "./playground/server-management/servers/edit-server/edit-server.component";
+import {ServersService} from "./playground/server-management/servers/servers.service";
 
 @NgModule({
   declarations: [
@@ -69,13 +76,20 @@ import {ShoppingListService} from "./shopping-list/shopping-list.service";
     AccountComponent,
     UserManagerComponent,
     ActiveUsersComponent,
-    InactiveUsersComponent
+    InactiveUsersComponent,
+    ServerManagementComponent,
+    HomeComponent,
+    ServersComponent,
+    ServerComponent,
+    EditServerComponent,
+    UsersComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [UsersService, CounterService, ShoppingListService],
+  providers: [UsersService, CounterService, ShoppingListService, ServersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -43,6 +43,13 @@ import {UsersComponent} from "./playground/server-management/users/users.compone
 import {UserComponent} from "./playground/server-management/users/user/user.component";
 import {EditServerComponent} from "./playground/server-management/servers/edit-server/edit-server.component";
 import {ServersService} from "./playground/server-management/servers/servers.service";
+import {RouterModule, Routes} from "@angular/router";
+
+const appRoutes: Routes = [
+  { path: "", component: HomeComponent },
+  { path: "users", component: UsersComponent },
+  { path: "servers", component: ServersComponent },
+]
 
 @NgModule({
   declarations: [
@@ -87,7 +94,8 @@ import {ServersService} from "./playground/server-management/servers/servers.ser
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService],
   bootstrap: [AppComponent]

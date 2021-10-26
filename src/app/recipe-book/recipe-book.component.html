@@ -1,6 +1,6 @@
 <article class="row">
   <section class="col-md-5">
-    <app-recipe-book-list (selectRecipe)="onRecipeSelected($event)"></app-recipe-book-list>
+    <app-recipe-book-list></app-recipe-book-list>
   </section>
   <section class="col-md-7">
     <app-recipe-book-details [recipe]="selectedRecipe" *ngIf="selectedRecipe"></app-recipe-book-details>

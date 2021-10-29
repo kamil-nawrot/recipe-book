@@ -44,21 +44,7 @@ import {UserComponent} from "./playground/server-management/users/user/user.comp
 import {EditServerComponent} from "./playground/server-management/servers/edit-server/edit-server.component";
 import {ServersService} from "./playground/server-management/servers/servers.service";
 import {RouterModule, Routes} from "@angular/router";
-
-const appRoutes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "users", component: UsersComponent, children: [
-      { path: ":id", component: UserComponent },
-    ]
-  },
-  { path: "servers", component: ServersComponent, children: [
-      { path: ":id", component: ServerComponent },
-      { path: ":id/edit", component: EditServerComponent }
-    ]
-  },
-  { path: "**", redirectTo: ""},
-
-]
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -104,7 +90,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService],
   bootstrap: [AppComponent]

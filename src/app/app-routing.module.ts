@@ -8,6 +8,7 @@ import {ServerComponent} from "./playground/server-management/servers/server/ser
 import {EditServerComponent} from "./playground/server-management/servers/edit-server/edit-server.component";
 import {AuthGuardService} from "./auth-guard.service";
 import {CanDeactivateGuardService} from "./playground/server-management/servers/edit-server/can-deactivate-guard.service";
+import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
       { path: ":id/edit", component: EditServerComponent, canDeactivate: [CanDeactivateGuardService] }
     ]
   },
-  { path: "**", redirectTo: ""},
+  { path: "not-found", component: ErrorPageComponent, data: { errorMessage: "Page was not found!" } },
+  { path: "**", redirectTo: "not-found"},
 ]
 
 @NgModule({

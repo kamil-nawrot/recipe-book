@@ -45,6 +45,8 @@ import {EditServerComponent} from "./playground/server-management/servers/edit-s
 import {ServersService} from "./playground/server-management/servers/servers.service";
 import {RouterModule, Routes} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import {AuthService} from "./auth.service";
+import {AuthGuardService} from "./auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -92,7 +94,7 @@ import {AppRoutingModule} from "./app-routing.module";
     FormsModule,
     AppRoutingModule
   ],
-  providers: [UsersService, CounterService, ShoppingListService, ServersService],
+  providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

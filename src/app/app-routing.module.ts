@@ -6,6 +6,7 @@ import {UserComponent} from "./playground/server-management/users/user/user.comp
 import {ServersComponent} from "./playground/server-management/servers/servers.component";
 import {ServerComponent} from "./playground/server-management/servers/server/server.component";
 import {EditServerComponent} from "./playground/server-management/servers/edit-server/edit-server.component";
+import {AuthGuardService} from "./auth-guard.service";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
       { path: ":id", component: UserComponent },
     ]
   },
-  { path: "servers", component: ServersComponent, children: [
+  { path: "servers", component: ServersComponent, canActivateChild: [AuthGuardService], children: [
       { path: ":id", component: ServerComponent },
       { path: ":id/edit", component: EditServerComponent }
     ]

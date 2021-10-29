@@ -1,5 +1,9 @@
 <h4>Welcome to Server Manager 4.0</h4>
 <p>Manage your Servers and Users.</p>
-<button class="btn btn-primary" (click)="onLoadServers()">Load Servers</button>
+<p>Your are {{ isLoggedIn ? "logged in" : "logged out" }}</p>
+<section class="btn-group">
+  <button class="btn btn-primary" [disabled]="isLoggedIn" (click)="toggleLoginStatus()">Login</button>
+  <button class="btn btn-danger" [disabled]="!isLoggedIn" (click)="toggleLoginStatus()">Logout</button>
+</section>
 
 

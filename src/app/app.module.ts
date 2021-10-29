@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ServerComponent } from './playground/server/server.component';
 import { WarningAlertComponent } from './playground/warning-alert/warning-alert.component';
 import { SuccessAlertComponent } from './playground/success-alert/success-alert.component';
 import { ServerListComponent } from './playground/server-list/server-list.component';
@@ -39,6 +38,7 @@ import {ShoppingListService} from "./shopping-list/shopping-list.service";
 import { ServerManagementComponent } from './playground/server-management/server-management.component';
 import {HomeComponent} from "./playground/server-management/home/home.component";
 import {ServersComponent} from "./playground/server-management/servers/servers.component";
+import { ServerComponent } from "./playground/server-management/servers/server/server.component"
 import {UsersComponent} from "./playground/server-management/users/users.component";
 import {UserComponent} from "./playground/server-management/users/user/user.component";
 import {EditServerComponent} from "./playground/server-management/servers/edit-server/edit-server.component";
@@ -47,9 +47,17 @@ import {RouterModule, Routes} from "@angular/router";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "users", component: UsersComponent },
-  { path: "users/:id", component: UserComponent },
-  { path: "servers", component: ServersComponent },
+  { path: "users", component: UsersComponent, children: [
+      { path: ":id", component: UserComponent },
+    ]
+  },
+  { path: "servers", component: ServersComponent, children: [
+      { path: ":id", component: ServerComponent },
+      { path: ":id/edit", component: EditServerComponent }
+    ]
+  },
+  { path: "**", redirectTo: "" },
+
 ]
 
 @NgModule({

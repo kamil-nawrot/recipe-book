@@ -9,6 +9,7 @@ import {EditServerComponent} from "./playground/server-management/servers/edit-s
 import {AuthGuardService} from "./auth-guard.service";
 import {CanDeactivateGuardService} from "./playground/server-management/servers/edit-server/can-deactivate-guard.service";
 import {ErrorPageComponent} from "./error-page/error-page.component";
+import {ServerResolverService} from "./playground/server-management/servers/server/server-resolver.service";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -17,7 +18,7 @@ const appRoutes: Routes = [
     ]
   },
   { path: "servers", component: ServersComponent, canActivateChild: [AuthGuardService], children: [
-      { path: ":id", component: ServerComponent },
+      { path: ":id", component: ServerComponent, resolve: { server: ServerResolverService } },
       { path: ":id/edit", component: EditServerComponent, canDeactivate: [CanDeactivateGuardService] }
     ]
   },

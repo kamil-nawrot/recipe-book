@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
-import {ActivatedRoute, Params, Router} from "@angular/router";
+import {ActivatedRoute, Data, Params, Router} from "@angular/router";
+import {Server} from "./server.interface";
 
 @Component({
   selector: 'app-server',
@@ -9,17 +10,20 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-  server: {id: number, name: string, status: string} | undefined = { id: -1, name: "", status: "" }
+  server: Server | undefined = { id: -1, name: "", status: "" }
 
   constructor(private serversService: ServersService, private currentRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    if (this.serversService.getServer(+this.currentRoute.snapshot.params["id"])) {
-      this.server = this.serversService.getServer(+this.currentRoute.snapshot.params["id"]);
-    }
-
-    this.currentRoute.params.subscribe((updatedParams: Params) => {
-      this.server = this.serversService.getServer(+updatedParams["id"])
+    // if (this.serversService.getServer(+this.currentRoute.snapshot.params["id"])) {
+    //   this.server = this.serversService.getServer(+this.currentRoute.snapshot.params["id"]);
+    // }
+    //
+    // this.currentRoute.params.subscribe((updatedParams: Params) => {
+    //   this.server = this.serversService.getServer(+updatedParams["id"])
+    // })
+    this.currentRoute.data.subscribe((data: Data) => {
+      this.server = data.server
     })
   }
 

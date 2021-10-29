@@ -47,6 +47,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthService} from "./auth.service";
 import {AuthGuardService} from "./auth-guard.service";
+import {CanDeactivateGuardService} from "./playground/server-management/servers/edit-server/can-deactivate-guard.service";
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ import {AuthGuardService} from "./auth-guard.service";
     FormsModule,
     AppRoutingModule
   ],
-  providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService],
+  providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,19 +9,22 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-  server: {id: number, name: string, status: string} | undefined;
+  server: {id: number, name: string, status: string} | undefined = { id: -1, name: "", status: "" }
 
   constructor(private serversService: ServersService, private currentRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.server = this.serversService.getServer(+this.currentRoute.snapshot.params["id"]);
+    if (this.serversService.getServer(+this.currentRoute.snapshot.params["id"])) {
+      this.server = this.serversService.getServer(+this.currentRoute.snapshot.params["id"]);
+    }
+
     this.currentRoute.params.subscribe((updatedParams: Params) => {
       this.server = this.serversService.getServer(+updatedParams["id"])
     })
   }
 
   onEdit() {
-    this.router.navigate(["edit"], { relativeTo: this.currentRoute, queryParamsHandling: "preserve" })
+    this.router.navigate(["edit"], { relativeTo: this.currentRoute, queryParams: { allowEdit: this.server && this.server.id === 2 ? "true" : "false" }, queryParamsHandling: "merge" })
   }
 
 }

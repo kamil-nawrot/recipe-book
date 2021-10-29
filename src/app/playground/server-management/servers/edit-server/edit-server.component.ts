@@ -11,8 +11,7 @@ import {Subscription} from "rxjs";
 })
 export class EditServerComponent implements OnInit {
 
-  // @ts-ignore
-  server: {id: number, name: string, status: string};
+  server: {id: number, name: string, status: string} = { id: -1, name: "", status: "" };
   serverName = '';
   serverStatus = '';
 
@@ -34,7 +33,8 @@ export class EditServerComponent implements OnInit {
   ngOnInit() {
     if (this.server) {
       // @ts-ignore
-      this.server = this.serversService.getServer(1);
+      this.server = this.serversService.getServer(+this.currentRoute.snapshot.params["id"])
+      console.log("Test" + this.server)
       this.serverName = this.server.name;
       this.serverStatus = this.server.status;
     }

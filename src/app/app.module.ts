@@ -56,7 +56,7 @@ const appRoutes: Routes = [
       { path: ":id/edit", component: EditServerComponent }
     ]
   },
-  { path: "**", redirectTo: "" },
+  { path: "**", redirectTo: ""},
 
 ]
 

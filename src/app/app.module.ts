@@ -52,6 +52,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import {ServerResolverService} from "./playground/server-management/servers/server/server-resolver.service";
 import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
+import { TemplateDrivenFormComponent } from './playground/forms/template-driven-form/template-driven-form.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
     UserComponent,
     ErrorPageComponent,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,

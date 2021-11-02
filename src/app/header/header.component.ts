@@ -14,9 +14,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onPageOpen(newPage: string) {
-    this.pageChange.emit(newPage)
-  }
-
 }

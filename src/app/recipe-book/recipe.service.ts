@@ -12,6 +12,7 @@ export class RecipeService {
 
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       "Test Recipe",
       "Scrambled Eggs on Water",
       "https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg",
@@ -23,6 +24,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      2,
       "Some Weird Vegetable Mix",
       "This is simply a test 222222",
       "https://loveincorporated.blob.core.windows.net/contentimages/gallery/d9e900e4-212e-4c3d-96d5-cb14a023c659-worlds-most-delicious-dishes.jpg",
@@ -40,6 +42,11 @@ export class RecipeService {
   getRecipes() {
     return this.recipes.slice()
   }
+
+  getRecipeById(id: number) {
+    return this.recipes[id-1]
+  }
+
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredientsFromRecipe(ingredients)

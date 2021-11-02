@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Recipe} from "../recipe.model";
 import {RecipeService} from "../recipe.service";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-book-details',
@@ -9,17 +10,24 @@ import {RecipeService} from "../recipe.service";
 })
 export class RecipeBookDetailsComponent implements OnInit {
 
-  @Input() recipe: Recipe | undefined
+  recipe: Recipe | undefined
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private currentRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.currentRoute.params.subscribe((updatedParams: Params) => {
+      this.recipe = this.recipeService.getRecipeById(+updatedParams["id"])
+    })
   }
 
   onAddToShoppingList() {
     if (this.recipe) {
       this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients)
     }
+  }
+
+  onEditRecipe() {
+    this.router.navigate(["edit"], { relativeTo: this.currentRoute })
   }
 
 }

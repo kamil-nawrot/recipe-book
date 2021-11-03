@@ -53,6 +53,7 @@ import {ServerResolverService} from "./playground/server-management/servers/serv
 import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
 import { TemplateDrivenFormComponent } from './playground/forms/template-driven-form/template-driven-form.component';
+import { TemplateDrivenFormAssignmentComponent } from './playground/forms/template-driven-form-assignment/template-driven-form-assignment.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { TemplateDrivenFormComponent } from './playground/forms/template-driven-
     ErrorPageComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    TemplateDrivenFormAssignmentComponent
   ],
   imports: [
     BrowserModule,

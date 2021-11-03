@@ -1,0 +1,13 @@
+form {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.form-group {
+  margin: 20px 0;
+}
+
+button {
+  margin-top: 40px;
+}
+

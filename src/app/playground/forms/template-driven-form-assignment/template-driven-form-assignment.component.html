@@ -1,1 +1,30 @@
-<p>template-driven-form-assignment works!</p>
+<article class="container">
+  <section class="row">
+    <section class="col">
+      <form class="form-wrapper">
+        <h1 class="fs-1">Subscription Form</h1>
+        <div ngFormGroup="credentials">
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" id="username" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <select class="form-control">
+            <option value="basic">Basic</option>
+            <option value="advanced">Advanced</option>
+            <option value="pro">Pro</option>
+          </select>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
+      </form>
+
+    </section>
+  </section>
+</article>

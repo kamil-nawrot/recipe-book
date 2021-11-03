@@ -1,6 +1,7 @@
 form {
   max-width: 800px;
   margin: 40px auto;
+  padding: 40px;
 }
 
 .form-group {
@@ -11,3 +12,7 @@ button {
   margin-top: 40px;
 }
 
+form.ng-invalid.ng-touched {
+  border: 1px solid red;
+  border-radius: 16px;
+}

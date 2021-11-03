@@ -21,6 +21,7 @@ export class TemplateDrivenFormComponent implements OnInit {
 
   onSubmit(formData: NgForm) {
     console.log(formData)
+    this.formData?.reset()
   }
 
   onSuggestUsername() {

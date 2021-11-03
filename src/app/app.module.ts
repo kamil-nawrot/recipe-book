@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { WarningAlertComponent } from './playground/warning-alert/warning-alert.component';
@@ -54,6 +54,7 @@ import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.co
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
 import { TemplateDrivenFormComponent } from './playground/forms/template-driven-form/template-driven-form.component';
 import { TemplateDrivenFormAssignmentComponent } from './playground/forms/template-driven-form-assignment/template-driven-form-assignment.component';
+import { ReactiveFormComponent } from './playground/forms/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -99,11 +100,13 @@ import { TemplateDrivenFormAssignmentComponent } from './playground/forms/templa
     RecipeStartComponent,
     RecipeEditComponent,
     TemplateDrivenFormComponent,
-    TemplateDrivenFormAssignmentComponent
+    TemplateDrivenFormAssignmentComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService],

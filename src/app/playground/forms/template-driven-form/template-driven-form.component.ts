@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-template-driven-form',
@@ -7,13 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateDrivenFormComponent implements OnInit {
 
+  @ViewChild("form") formData: NgForm | undefined
+
+  defaultQuestion = "pet"
+  answer = ""
+  genderList = ["male", "female", "other"]
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(formData: NgForm) {
+    console.log(formData)
+  }
 
+  onSuggestUsername() {
+    this.formData?.form.patchValue({
+      userData: {
+        username: "Suggested Username"
+      }
+    })
   }
 
 }

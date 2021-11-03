@@ -17,7 +17,7 @@
         </div>
         <div class="form-group">
           <label for="type" class="form-label">Subscription type</label>
-          <select class="form-control" id="type" name="type" ngModel>
+          <select class="form-control" id="type" name="type" [ngModel]="defaultType" ngModel>
             <option value="basic">Basic</option>
             <option value="advanced">Advanced</option>
             <option value="pro">Pro</option>
@@ -27,6 +27,15 @@
           <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!form.valid">Submit</button>
         </div>
       </form>
+
+      <section class="alert alert-success" *ngIf="isSubmitted">
+        <h2 class="alert-heading">Form successfully submitted!</h2>
+        <section>
+          <p>Your e-mail address: <strong>{{ results.email }}</strong></p>
+          <p>Your password: <strong>{{ results.password }}</strong></p>
+          <p>Subscription type: <strong>{{ results.type }}</strong></p>
+        </section>
+      </section>
 
     </section>
   </section>

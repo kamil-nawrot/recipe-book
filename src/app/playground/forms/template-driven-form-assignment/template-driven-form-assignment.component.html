@@ -6,22 +6,24 @@
         <div ngModelGroup="credentials">
           <div class="form-group">
             <label for="username" class="form-label">Username</label>
-            <input type="text" name="username" id="username" class="form-control" ngModel />
+            <input type="text" name="username" id="username" class="form-control" ngModel required email #email="ngModel" />
+            <p class="form-text text-danger" *ngIf="email.invalid && email.touched">Please enter correct email address!</p>
           </div>
           <div class="form-group">
             <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-control" ngModel />
+            <input type="password" name="password" id="password" class="form-control" ngModel required />
           </div>
         </div>
         <div class="form-group">
-          <select class="form-control" name="type" ngModel>
+          <label for="type" class="form-label">Subscription type</label>
+          <select class="form-control" id="type" name="type" ngModel>
             <option value="basic">Basic</option>
             <option value="advanced">Advanced</option>
             <option value="pro">Pro</option>
           </select>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!form.valid">Submit</button>
         </div>
       </form>
 

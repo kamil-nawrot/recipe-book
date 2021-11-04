@@ -54,6 +54,7 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
 import { TemplateDrivenFormComponent } from './playground/forms/template-driven-form/template-driven-form.component';
 import { TemplateDrivenFormAssignmentComponent } from './playground/forms/template-driven-form-assignment/template-driven-form-assignment.component';
 import { ReactiveFormComponent } from './playground/forms/reactive-form/reactive-form.component';
+import { ReactiveFormAssignmentComponent } from './playground/forms/reactive-form-assignment/reactive-form-assignment.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { ReactiveFormComponent } from './playground/forms/reactive-form/reactive
     TemplateDrivenFormComponent,
     TemplateDrivenFormAssignmentComponent,
     ReactiveFormComponent,
+    ReactiveFormAssignmentComponent,
   ],
   imports: [
     BrowserModule,

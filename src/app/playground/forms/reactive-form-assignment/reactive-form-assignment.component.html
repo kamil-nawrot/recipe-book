@@ -6,6 +6,10 @@
         <div class="form-group">
           <label for="name" class="form-label fw-bold">Project name</label>
           <input type="text" class="form-control" id="name" name="name" formControlName="name">
+          <span class="form-text text-danger" *ngIf="form.get('name').invalid && form.get('name').touched">
+            <p *ngIf="form.get('name').errors['required']"> This field cannot be empty! </p>
+            <p *ngIf="form.get('name').errors['nameIsForbidden']"> This project name is not allowed! Choose another one. </p>
+          </span>
         </div>
         <div class="form-group">
           <label for="email" class="form-label fw-bold">E-mail</label>
@@ -20,7 +24,7 @@
           </select>
         </div>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+          <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="this.form.status !== 'VALID'">Submit</button>
         </div>
       </form>
     </section>

@@ -1,25 +1,25 @@
 <section class="row">
   <div class="col-xs-12">
-    <form>
+    <form (ngSubmit)="onAddIngredient()" #addIngredientForm="ngForm">
       <section class="row">
         <div class="input-group">
           <div class="col-sm-6">
             <label for="name">Name</label>
-            <input type="text" id="name" class="form-control" #nameInput>
+            <input type="text" id="name" name="name" class="form-control" ngModel>
           </div>
           <div class="col-sm-3">
             <label for="amount">Amount</label>
-            <input type="number" id="amount" class="form-control" #amountInput>
+            <input type="number" id="amount" name="amount" class="form-control" ngModel>
           </div>
           <div class="col-sm-3">
             <label for="unit">Unit</label>
-            <input type="text" id="unit" class="form-control" #unitInput>
+            <input type="text" id="unit" name="unit" class="form-control" ngModel>
           </div>
         </div>
       </section>
       <section class="row">
         <div class="col-xs-12 btn-group" role="group">
-          <button class="btn btn-success" type="submit" (click)="onAddIngredient()">Add</button>
+          <button class="btn btn-success" type="submit">Add</button>
           <button class="btn btn-danger" type="button">Delete</button>
           <button class="btn btn-primary" type="button">Clear</button>
         </div>

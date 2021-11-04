@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
 import {Ingredient} from "../../shared/models/ingredient.model";
 import {LoggingService} from "../../shared/logging.service";
 import {ShoppingListService} from "../shopping-list.service";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-shopping-list-input',
@@ -10,12 +11,7 @@ import {ShoppingListService} from "../shopping-list.service";
 })
 export class ShoppingListInputComponent implements OnInit {
 
-  // @ts-ignore
-  @ViewChild('nameInput') nameInput: ElementRef
-  // @ts-ignore
-  @ViewChild('amountInput') amountInput: ElementRef
-  // @ts-ignore
-  @ViewChild('unitInput') unitInput: ElementRef
+  @ViewChild("addIngredientForm") addIngredientForm: NgForm
 
   constructor(private shoppingListService: ShoppingListService, private loggingService: LoggingService) { }
 
@@ -23,14 +19,10 @@ export class ShoppingListInputComponent implements OnInit {
   }
 
   onAddIngredient() {
-    const ingredient = new Ingredient(
-      this.nameInput.nativeElement.value,
-      this.amountInput.nativeElement.value,
-      this.unitInput.nativeElement.value
-    )
-
-    this.shoppingListService.addIngredient(ingredient)
-    this.loggingService.logNewIngredient(ingredient)
+    console.log(this.addIngredientForm.value)
+    const formData = this.addIngredientForm.value
+    const newIngredient = new Ingredient(formData.name, formData.amount, formData.unit)
+    this.shoppingListService.addIngredient(newIngredient)
   }
 
 }

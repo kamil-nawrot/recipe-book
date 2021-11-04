@@ -10,6 +10,8 @@ export class ShoppingListService {
   // ingredientsChanged = new EventEmitter<Ingredient[]>()
   ingredientsChanged = new Subject<Ingredient[]>()
 
+  startedEditing = new Subject<number>()
+
   private ingredients: Ingredient[] = [
     new Ingredient("flour", 200, "g"),
     new Ingredient("eggs", 4, "pcs")
@@ -17,6 +19,10 @@ export class ShoppingListService {
 
   getIngredients() {
     return this.ingredients.slice()
+  }
+
+  getIngredientById(index: number) {
+    return this.ingredients[index]
   }
 
   addIngredient(ingredient: Ingredient) {
@@ -27,6 +33,16 @@ export class ShoppingListService {
   addIngredientsFromRecipe(ingredients: Ingredient[]) {
     this.ingredients = this.ingredients.concat(ingredients)
     this.ingredientsChanged.next(this.getIngredients())
+  }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient
+    this.ingredientsChanged.next(this.ingredients.slice())
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1)
+    return this.ingredientsChanged.next(this.ingredients.slice())
   }
 
   constructor() { }

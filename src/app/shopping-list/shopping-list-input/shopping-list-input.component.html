@@ -19,9 +19,9 @@
       </section>
       <section class="row">
         <div class="col-xs-12 btn-group" role="group">
-          <button class="btn btn-success" type="submit" [disabled]="!addIngredientForm.valid">Add</button>
-          <button class="btn btn-danger" type="button">Delete</button>
-          <button class="btn btn-primary" type="button">Clear</button>
+          <button class="btn btn-success" type="submit" [disabled]="!addIngredientForm.valid">{{ editMode ? "Update" : "Add" }}</button>
+          <button class="btn btn-danger" type="button" (click)="onDeleteIngredient()" [disabled]="!editMode">Delete</button>
+          <button class="btn btn-primary" type="button" (click)="resetForm()">Clear</button>
         </div>
       </section>
     </form>

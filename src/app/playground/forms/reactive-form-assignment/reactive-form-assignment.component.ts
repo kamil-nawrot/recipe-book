@@ -11,6 +11,8 @@ export class ReactiveFormAssignmentComponent implements OnInit {
 
   form: FormGroup
   forbiddenNames = ["test"]
+  submitted = false
+  result: { name: string, email: string, status: string }
 
   constructor() {
     this.form = new FormGroup({
@@ -34,6 +36,14 @@ export class ReactiveFormAssignmentComponent implements OnInit {
     })
   }
 
-
+  onSubmit() {
+    this.submitted = true
+    this.result = {
+      name: this.form.get("username").value,
+      email: this.form.get("email").value,
+      status: this.form.get("status").value
+    }
+    this.form.reset()
+  }
 
 }

@@ -39,7 +39,7 @@ export class ReactiveFormAssignmentComponent implements OnInit {
   onSubmit() {
     this.submitted = true
     this.result = {
-      name: this.form.get("username").value,
+      name: this.form.get("name").value,
       email: this.form.get("email").value,
       status: this.form.get("status").value
     }

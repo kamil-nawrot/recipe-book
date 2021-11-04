@@ -5,11 +5,11 @@
         <div class="input-group">
           <div class="col-sm-6">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" class="form-control" ngModel>
+            <input type="text" id="name" name="name" class="form-control" ngModel required>
           </div>
           <div class="col-sm-3">
             <label for="amount">Amount</label>
-            <input type="number" id="amount" name="amount" class="form-control" ngModel>
+            <input type="number" id="amount" name="amount" class="form-control" ngModel required min="1">
           </div>
           <div class="col-sm-3">
             <label for="unit">Unit</label>
@@ -19,7 +19,7 @@
       </section>
       <section class="row">
         <div class="col-xs-12 btn-group" role="group">
-          <button class="btn btn-success" type="submit">Add</button>
+          <button class="btn btn-success" type="submit" [disabled]="!addIngredientForm.valid">Add</button>
           <button class="btn btn-danger" type="button">Delete</button>
           <button class="btn btn-primary" type="button">Clear</button>
         </div>

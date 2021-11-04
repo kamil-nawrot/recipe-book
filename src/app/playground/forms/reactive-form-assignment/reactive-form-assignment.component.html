@@ -1,7 +1,6 @@
 <article class="container">
   <section class="row">
     <section class="col">
-
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <h1 class="fs-1">Project Settings</h1>
         <div class="form-group">
@@ -25,5 +24,12 @@
         </div>
       </form>
     </section>
+  </section>
+  <section class="alert alert-success" *ngIf="submitted">
+    <h2 class="alert-heading">Project Summary</h2>
+    <hr />
+    <p> Project name: {{ result.name }} </p>
+    <p> Project owner e-mail: {{ result.email }} </p>
+    <p> Project status: {{ result.status }} </p>
   </section>
 </article>

@@ -43,7 +43,6 @@ import {UsersComponent} from "./playground/server-management/users/users.compone
 import {UserComponent} from "./playground/server-management/users/user/user.component";
 import {EditServerComponent} from "./playground/server-management/servers/edit-server/edit-server.component";
 import {ServersService} from "./playground/server-management/servers/servers.service";
-import {RouterModule, Routes} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthService} from "./auth.service";
 import {AuthGuardService} from "./auth-guard.service";
@@ -101,7 +100,7 @@ import { ReactiveFormComponent } from './playground/forms/reactive-form/reactive
     RecipeEditComponent,
     TemplateDrivenFormComponent,
     TemplateDrivenFormAssignmentComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,

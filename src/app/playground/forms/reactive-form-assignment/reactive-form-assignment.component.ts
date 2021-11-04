@@ -23,6 +23,7 @@ export class ReactiveFormAssignmentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form.valueChanges.subscribe(values => console.log(values))
   }
 
   allowedNames = (control: FormControl): Observable<{[s: string]: boolean} | null> => {
@@ -37,6 +38,7 @@ export class ReactiveFormAssignmentComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.form)
     this.submitted = true
     this.result = {
       name: this.form.get("name").value,

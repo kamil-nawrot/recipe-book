@@ -2,19 +2,19 @@
   <section class="row">
     <section class="col">
 
-      <form>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <h1 class="fs-1">Project Settings</h1>
         <div class="form-group">
           <label for="name" class="form-label fw-bold">Project name</label>
-          <input type="text" class="form-control" id="name" name="name">
+          <input type="text" class="form-control" id="name" name="name" formControlName="name">
         </div>
         <div class="form-group">
           <label for="email" class="form-label fw-bold">E-mail</label>
-          <input type="email" class="form-control" id="email" name="email">
+          <input type="email" class="form-control" id="email" name="email" formControlName="email">
         </div>
         <div class="form-group">
           <label for="type" class="form-label fw-bold">Project status</label>
-          <select class="form-control" id="type" name="type">
+          <select class="form-control" id="type" name="type" formControlName="status">
             <option value="stable">Stable</option>
             <option value="critical">Critical</option>
             <option value="finished">Finished</option>

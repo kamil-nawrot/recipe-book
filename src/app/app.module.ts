@@ -60,6 +60,8 @@ import { ShortenPipe } from './playground/pipes/shorten.pipe';
 import { FilterPipe } from './playground/pipes/filter.pipe';
 import { ReversePipe } from './playground/pipes/reverse.pipe';
 import { SortPipe } from './playground/pipes/sort.pipe';
+import { SendRequestComponent } from './playground/http/send-request/send-request.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -113,11 +115,13 @@ import { SortPipe } from './playground/pipes/sort.pipe';
     FilterPipe,
     ReversePipe,
     SortPipe,
+    SendRequestComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService],

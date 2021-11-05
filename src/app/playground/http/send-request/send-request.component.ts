@@ -15,16 +15,19 @@ export class SendRequestComponent implements OnInit {
   ngOnInit() {}
 
   onCreatePost(postData: { title: string; content: string }) {
-    // Send Http request
+    this.http.post(
+        "https://ng-complete-course-recipe-book-default-rtdb.europe-west1.firebasedatabase.app/posts.json",
+        postData
+    ).subscribe(responseData => {
+      console.log(responseData)
+    })
     console.log(postData);
   }
 
   onFetchPosts() {
-    // Send Http request
   }
 
   onClearPosts() {
-    // Send Http request
   }
 
 }

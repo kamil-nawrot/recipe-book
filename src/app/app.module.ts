@@ -55,6 +55,7 @@ import { TemplateDrivenFormComponent } from './playground/forms/template-driven-
 import { TemplateDrivenFormAssignmentComponent } from './playground/forms/template-driven-form-assignment/template-driven-form-assignment.component';
 import { ReactiveFormComponent } from './playground/forms/reactive-form/reactive-form.component';
 import { ReactiveFormAssignmentComponent } from './playground/forms/reactive-form-assignment/reactive-form-assignment.component';
+import { PipesComponent } from './playground/pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { ReactiveFormAssignmentComponent } from './playground/forms/reactive-for
     TemplateDrivenFormAssignmentComponent,
     ReactiveFormComponent,
     ReactiveFormAssignmentComponent,
+    PipesComponent,
   ],
   imports: [
     BrowserModule,

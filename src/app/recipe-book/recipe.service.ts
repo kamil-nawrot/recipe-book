@@ -9,6 +9,8 @@ import {Subject} from "rxjs";
 })
 export class RecipeService {
 
+  recipesChanged = new Subject<Recipe[]>()
+
   private recipes: Recipe[] = [
     new Recipe(
       1,
@@ -42,13 +44,30 @@ export class RecipeService {
     return this.recipes.slice()
   }
 
-  getRecipeById(id: number) {
-    return this.recipes[id-1]
+  getRecipeById(id: number): Recipe {
+    return this.recipes.filter(recipe => recipe.id === id)[0]
   }
 
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredientsFromRecipe(ingredients)
+  }
+
+  addRecipe(recipe: Recipe) {
+      this.recipes.push(recipe)
+      this.recipesChanged.next(this.recipes)
+  }
+
+  updateRecipe(index: number, recipe: Recipe) {
+      const arrayId = this.recipes.indexOf(this.recipes.filter(recipe => recipe.id === index)[0])
+      this.recipes[arrayId] = recipe
+      this.recipesChanged.next(this.recipes)
+  }
+
+  deleteRecipe(index: number) {
+      const arrayId = this.recipes.indexOf(this.recipes.filter(recipe => recipe.id === index)[0])
+      this.recipes.splice(arrayId, 1)
+      this.recipesChanged.next(this.recipes)
   }
 
 }

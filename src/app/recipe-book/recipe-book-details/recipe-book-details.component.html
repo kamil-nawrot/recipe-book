@@ -6,8 +6,8 @@
   </section>
   <section class="row">
     <div class="col-xs-12">
-      <h1 appBasicHighlight>{{ recipe.name }}</h1>
-      <p appBetterHighlight="lightblue">{{ recipe.description }}</p>
+      <h1>{{ recipe.name }}</h1>
+      <p>{{ recipe.description }}</p>
     </div>
   </section>
   <section class="row">
@@ -31,7 +31,7 @@
           <ul class="dropdown-menu" aria-labelledby="menageRecipeDropdown">
             <li class="dropdown-item"><a class="btn btn-link" (click)="onAddToShoppingList()">Add Ingredients to Shopping List</a></li>
             <li class="dropdown-item"><a class="btn btn-link" (click)="onEditRecipe()">Edit Recipe</a></li>
-            <li class="dropdown-item"><a>Delete Recipe</a></li>
+            <li class="dropdown-item"><a class="btn btn-link" (click)="onDeleteRecipe()">Delete Recipe</a></li>
           </ul>
         </div>
       </div>

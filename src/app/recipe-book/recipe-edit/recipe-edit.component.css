@@ -1,0 +1,19 @@
+.form-label {
+  margin-top: 20px;
+}
+
+.col-sm-2 {
+  text-align: end;
+}
+
+.input-group {
+   margin-top: 10px;
+}
+
+.col > button {
+  margin-right: 12px;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border-color: red;
+}

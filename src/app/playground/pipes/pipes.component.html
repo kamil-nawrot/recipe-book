@@ -8,7 +8,7 @@
                     *ngFor="let server of servers | filter: filteredStatus: 'status'"
                     [ngClass]="getStatusClasses(server)">
                     <span class="badge bg-secondary rounded-pill position-absolute end-0"> {{ server.status }} </span>
-                    <strong>{{ server.name | shorten:15 }}</strong> | {{ server.instanceType | uppercase }} | {{ server.started | date: "fullDate" | uppercase }}
+                    <strong>{{ server.name | reverse }}</strong> | {{ server.instanceType | uppercase }} | {{ server.started | date: "fullDate" | uppercase }}
                 </li>
             </ul>
         </div>

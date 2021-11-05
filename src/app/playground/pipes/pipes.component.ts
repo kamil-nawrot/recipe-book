@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PipesComponent {
 
+  filteredStatus = ""
+
   servers = [
     {
       instanceType: 'medium',

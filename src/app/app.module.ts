@@ -57,6 +57,7 @@ import { ReactiveFormComponent } from './playground/forms/reactive-form/reactive
 import { ReactiveFormAssignmentComponent } from './playground/forms/reactive-form-assignment/reactive-form-assignment.component';
 import { PipesComponent } from './playground/pipes/pipes.component';
 import { ShortenPipe } from './playground/pipes/shorten.pipe';
+import { FilterPipe } from './playground/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { ShortenPipe } from './playground/pipes/shorten.pipe';
     ReactiveFormAssignmentComponent,
     PipesComponent,
     ShortenPipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

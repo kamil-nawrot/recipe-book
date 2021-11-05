@@ -58,6 +58,8 @@ import { ReactiveFormAssignmentComponent } from './playground/forms/reactive-for
 import { PipesComponent } from './playground/pipes/pipes.component';
 import { ShortenPipe } from './playground/pipes/shorten.pipe';
 import { FilterPipe } from './playground/pipes/filter.pipe';
+import { ReversePipe } from './playground/pipes/reverse.pipe';
+import { SortPipe } from './playground/pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -109,6 +111,8 @@ import { FilterPipe } from './playground/pipes/filter.pipe';
     PipesComponent,
     ShortenPipe,
     FilterPipe,
+    ReversePipe,
+    SortPipe,
   ],
   imports: [
     BrowserModule,

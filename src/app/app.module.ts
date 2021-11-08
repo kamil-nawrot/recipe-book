@@ -62,6 +62,7 @@ import { ReversePipe } from './playground/pipes/reverse.pipe';
 import { SortPipe } from './playground/pipes/sort.pipe';
 import { SendRequestComponent } from './playground/http/send-request/send-request.component';
 import {HttpClientModule} from "@angular/common/http";
+import {RecipeBookModule} from "./recipe-book/recipe-book.module";
 
 @NgModule({
   declarations: [
@@ -76,10 +77,6 @@ import {HttpClientModule} from "@angular/common/http";
     ShoppingListItemComponent,
     ShoppingListInputComponent,
     HeaderComponent,
-    RecipeBookComponent,
-    RecipeBookListComponent,
-    RecipeBookDetailsComponent,
-    RecipeBookItemComponent,
     ServerCockpitComponent,
     ServerElementComponent,
     GameControlComponent,
@@ -89,7 +86,6 @@ import {HttpClientModule} from "@angular/common/http";
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    DropdownDirective,
     AccountManagerComponent,
     AddAccountComponent,
     AccountComponent,
@@ -104,8 +100,6 @@ import {HttpClientModule} from "@angular/common/http";
     UsersComponent,
     UserComponent,
     ErrorPageComponent,
-    RecipeStartComponent,
-    RecipeEditComponent,
     TemplateDrivenFormComponent,
     TemplateDrivenFormAssignmentComponent,
     ReactiveFormComponent,
@@ -122,7 +116,8 @@ import {HttpClientModule} from "@angular/common/http";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RecipeBookModule
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService],
   bootstrap: [AppComponent]

@@ -25,7 +25,6 @@ import { NumberGameComponent } from './playground/number-game/number-game.compon
 import { BasicHighlightDirective } from "./playground/basic-highlight/basic-highlight.directive";
 import { BetterHighlightDirective } from './playground/basic-highlight/better-highlight.directive';
 import { UnlessDirective } from './playground/unless/unless.directive';
-import { DropdownDirective } from './shared/dropdown.directive';
 import { AccountManagerComponent } from './playground/account-manager/account-manager.component';
 import { AddAccountComponent } from './playground/account-manager/add-account/add-account.component';
 import { AccountComponent } from './playground/account-manager/account/account.component';
@@ -63,6 +62,8 @@ import { SortPipe } from './playground/pipes/sort.pipe';
 import { SendRequestComponent } from './playground/http/send-request/send-request.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RecipeBookModule} from "./recipe-book/recipe-book.module";
+import {ShoppingListModule} from "./shopping-list/shopping-list.module";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -73,9 +74,6 @@ import {RecipeBookModule} from "./recipe-book/recipe-book.module";
     ServerListComponent,
     UsernameInputComponent,
     PasswordToggleComponent,
-    ShoppingListComponent,
-    ShoppingListItemComponent,
-    ShoppingListInputComponent,
     HeaderComponent,
     ServerCockpitComponent,
     ServerElementComponent,
@@ -112,12 +110,14 @@ import {RecipeBookModule} from "./recipe-book/recipe-book.module";
     SendRequestComponent,
   ],
   imports: [
+      SharedModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    RecipeBookModule
+    RecipeBookModule,
+    ShoppingListModule
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService],
   bootstrap: [AppComponent]

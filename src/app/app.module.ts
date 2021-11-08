@@ -115,9 +115,9 @@ import {SharedModule} from "./shared/shared.module";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule,
     RecipeBookModule,
-    ShoppingListModule
+    ShoppingListModule,
+    AppRoutingModule
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService],
   bootstrap: [AppComponent]

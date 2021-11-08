@@ -6,10 +6,7 @@ import { RecipeBookItemComponent } from "./recipe-book-item/recipe-book-item.com
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AppRoutingModule } from "../app-routing.module";
-import { CommonModule } from "@angular/common";
 import { RecipeBookRoutingModule } from "./recipe-book-routing.module";
-import { DropdownDirective } from "../shared/dropdown.directive";
 import {SharedModule} from "../shared/shared.module";
 
 @NgModule({

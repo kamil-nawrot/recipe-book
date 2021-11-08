@@ -10,14 +10,6 @@ import {RecipeEditComponent} from "./recipe-book/recipe-edit/recipe-edit.compone
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/recipes", pathMatch: "full" },
-  { path: "shopping-list", component: ShoppingListComponent },
-  { path: "recipes", component: RecipeBookComponent, children: [
-      { path: "", component: RecipeStartComponent },
-      { path: "new", component: RecipeEditComponent },
-      { path: ":id", component: RecipeBookDetailsComponent },
-      { path: ":id/edit", component: RecipeEditComponent },
-    ]
-  },
   { path: "not-found", component: ErrorPageComponent, data: { errorMessage: "Page was not found" } },
   { path: "**", redirectTo: "/not-found" }
 ]

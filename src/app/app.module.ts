@@ -64,6 +64,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RecipeBookModule} from "./recipe-book/recipe-book.module";
 import {ShoppingListModule} from "./shopping-list/shopping-list.module";
 import {SharedModule} from "./shared/shared.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import {SharedModule} from "./shared/shared.module";
   imports: [
       SharedModule,
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

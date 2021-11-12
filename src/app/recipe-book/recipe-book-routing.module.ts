@@ -5,13 +5,14 @@ import {RecipeBookComponent} from "./recipe-book.component";
 import {RecipeStartComponent} from "./recipe-start/recipe-start.component";
 import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
 import {RecipeBookDetailsComponent} from "./recipe-book-details/recipe-book-details.component";
+import {RecipesResolver} from "./recipes.resolver";
 
 const routes: Routes = [
     { path: "recipes", component: RecipeBookComponent, children: [
             { path: "", component: RecipeStartComponent },
             { path: "new", component: RecipeEditComponent },
-            { path: ":id", component: RecipeBookDetailsComponent },
-            { path: ":id/edit", component: RecipeEditComponent },
+            { path: ":id", component: RecipeBookDetailsComponent, resolve: [RecipesResolver] },
+            { path: ":id/edit", component: RecipeEditComponent, resolve: [RecipesResolver] },
         ]
     },
 ]

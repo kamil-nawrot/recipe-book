@@ -112,12 +112,11 @@ import {AuthInterceptorService} from "./playground/http/auth-interceptor.service
     SendRequestComponent,
   ],
   imports: [
-      SharedModule,
+    SharedModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     RecipeBookModule,
     ShoppingListModule,
     AppRoutingModule

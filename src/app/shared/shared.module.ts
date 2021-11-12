@@ -3,6 +3,7 @@ import {DropdownDirective} from "./dropdown.directive";
 import {CommonModule} from "@angular/common";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { LoaderComponent } from './loader/loader.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { LoaderComponent } from './loader/loader.component';
     ],
     imports: [
         CommonModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpClientModule
     ],
   exports: [
     DropdownDirective,

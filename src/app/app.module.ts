@@ -66,6 +66,7 @@ import {ShoppingListModule} from "./shopping-list/shopping-list.module";
 import {SharedModule} from "./shared/shared.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AuthInterceptorService} from "./playground/http/auth-interceptor.service";
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +111,7 @@ import {AuthInterceptorService} from "./playground/http/auth-interceptor.service
     ReversePipe,
     SortPipe,
     SendRequestComponent,
+    AuthComponent,
   ],
   imports: [
     SharedModule,
@@ -121,12 +123,7 @@ import {AuthInterceptorService} from "./playground/http/auth-interceptor.service
     ShoppingListModule,
     AppRoutingModule
   ],
-  providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true
-    }],
+  providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

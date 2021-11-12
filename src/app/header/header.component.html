@@ -5,15 +5,15 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+      <div class="collapse navbar-collapse justify-content-end d-flex" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="isAuthenticated">
             <a class="nav-link" routerLink="recipes" routerLinkActive="active">Recipes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="shopping-list" routerLinkActive="active">Shopping List</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown align-self-end" *ngIf="isAuthenticated">
             <a class="nav-link dropdown-toggle" appDropdown id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Options
             </a>
@@ -22,6 +22,10 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" (click)="onFetchData()">Fetch data</a></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary" routerLink="auth" routerLinkActive="active" *ngIf="!isAuthenticated">Sign in</a>
+            <a class="nav-link btn btn-danger" routerLinkActive="active" *ngIf="isAuthenticated">Log out</a>
           </li>
         </ul>
       </div>

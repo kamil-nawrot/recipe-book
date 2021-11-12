@@ -7,10 +7,12 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
 import {RecipeBookDetailsComponent} from "./recipe-book/recipe-book-details/recipe-book-details.component";
 import {RecipeStartComponent} from "./recipe-book/recipe-start/recipe-start.component";
 import {RecipeEditComponent} from "./recipe-book/recipe-edit/recipe-edit.component";
+import {AuthComponent} from "./auth/auth.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/recipes", pathMatch: "full" },
   { path: "not-found", component: ErrorPageComponent, data: { errorMessage: "Page was not found" } },
+  { path: "auth", component: AuthComponent },
   { path: "**", redirectTo: "/not-found" }
 ]
 

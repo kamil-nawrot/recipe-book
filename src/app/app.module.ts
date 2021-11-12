@@ -60,11 +60,12 @@ import { FilterPipe } from './playground/pipes/filter.pipe';
 import { ReversePipe } from './playground/pipes/reverse.pipe';
 import { SortPipe } from './playground/pipes/sort.pipe';
 import { SendRequestComponent } from './playground/http/send-request/send-request.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {RecipeBookModule} from "./recipe-book/recipe-book.module";
 import {ShoppingListModule} from "./shopping-list/shopping-list.module";
 import {SharedModule} from "./shared/shared.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AuthInterceptorService} from "./playground/http/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -121,7 +122,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ShoppingListModule,
     AppRoutingModule
   ],
-  providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService],
+  providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

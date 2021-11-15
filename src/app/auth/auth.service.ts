@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {catchError, tap} from "rxjs/operators";
-import {Observable, Subject, throwError} from "rxjs";
+import {BehaviorSubject, Observable, Subject, throwError} from "rxjs";
 import {User} from "./user.model";
+import {Router} from "@angular/router";
 
 export interface AuthResponseData {
   kind: string,
@@ -20,9 +21,10 @@ export interface AuthResponseData {
 })
 export class AuthService {
 
-  public user: Subject<User> = new Subject<User>()
+  public user: BehaviorSubject<User> = new BehaviorSubject<User>(null)
+  tokenExpirationTimer: any
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   signUp(email: string, password: string) {
     return this.http.post<AuthResponseData>(
@@ -50,11 +52,38 @@ export class AuthService {
     )
   }
 
+  public logOut() {
+    this.user.next(null)
+    this.router.navigate(["auth"])
+    localStorage.removeItem("USER")
+    if(this.tokenExpirationTimer) clearTimeout(this.tokenExpirationTimer)
+  }
+
+  autoLogin() {
+    const userData = JSON.parse(localStorage.getItem("USER"))
+    if(!userData) return
+    else {
+      const user: User = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate))
+      if (user.token) {
+        this.autoLogout(user.tokenExpirationDate.getTime() - new Date().getTime())
+        this.user.next(user)
+      }
+    }
+  }
+
+  autoLogout(expirationDuration: number) {
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logOut()
+    }, expirationDuration)
+  }
+
   private handleAuth(email: string, userId: string, token: string, expiresIn: number) {
     const expirationDate = new Date(new Date().getTime() + (expiresIn * 1000))
     const user = new User(email, userId, token, expirationDate)
 
     this.user.next(user)
+    this.autoLogout(expiresIn * 1000)
+    localStorage.setItem("USER", JSON.stringify(user))
   }
 
   private handleError(errorRes: HttpErrorResponse): Observable<never> {

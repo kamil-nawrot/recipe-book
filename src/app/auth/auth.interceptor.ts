@@ -5,19 +5,24 @@ import {
   HttpEvent,
   HttpInterceptor, HttpParams
 } from '@angular/common/http';
+import { Store } from "@ngrx/store";
 import { Observable } from 'rxjs';
+import { AppState } from "../store/app.reducer";
 import {AuthService} from "./auth.service";
 import {userError} from "@angular/compiler-cli/src/transformers/util";
+import * as fromApp from "../store/app.reducer"
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) {
-  }
+  constructor(private authService: AuthService, private store: Store<AppState>) { }
 
   intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    const user = this.authService.user.value
+    let user
+    this.store.select("auth").subscribe(authState => {
+      user = authState.user
+    })
 
     if (req.method === "GET" && user) {
       let modifiedReq = req.clone({

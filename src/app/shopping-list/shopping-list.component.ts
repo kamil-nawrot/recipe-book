@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { Ingredient } from "../shared/models/ingredient.model";
-import {ShoppingListService} from "./shopping-list.service";
-import {animate, group, style, transition, trigger} from "@angular/animations";
+import { animate, group, style, transition, trigger } from "@angular/animations";
+import { AppState } from "../store/app.reducer";
+import { StartEdit } from "./store/shopping-list.action";
 
 @Component({
   selector: 'app-shopping-list',
@@ -35,19 +38,20 @@ import {animate, group, style, transition, trigger} from "@angular/animations";
 })
 export class ShoppingListComponent implements OnInit {
 
-  public ingredients: Ingredient[] = []
+  public ingredients: Observable<{ingredients: Ingredient[]}>
 
-  constructor(private shoppingListService: ShoppingListService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.ingredients = this.shoppingListService.getIngredients()
-    this.shoppingListService.ingredientsChanged.subscribe((updatedIngredients: Ingredient[]) => {
-      this.ingredients = updatedIngredients
-    })
+    this.ingredients = this.store.select("shoppingList")
+    // this.ingredients = this.shoppingListService.getIngredients()
+    // this.shoppingListService.ingredientsChanged.subscribe((updatedIngredients: Ingredient[]) => {
+    //   this.ingredients = updatedIngredients
+    // })
   }
 
   onEditItem(i: number) {
-    this.shoppingListService.startedEditing.next(i)
+    this.store.dispatch(new StartEdit(i))
   }
 
 }

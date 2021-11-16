@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from "@ngrx/store";
 
 import { AppComponent } from './app.component';
 import { WarningAlertComponent } from './playground/warning-alert/warning-alert.component';
@@ -8,14 +9,7 @@ import { SuccessAlertComponent } from './playground/success-alert/success-alert.
 import { ServerListComponent } from './playground/server-list/server-list.component';
 import { UsernameInputComponent } from './playground/username-input/username-input.component';
 import { PasswordToggleComponent } from './playground/password-toggle/password-toggle.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingListItemComponent } from './shopping-list/shopping-list-item/shopping-list-item.component';
-import { ShoppingListInputComponent } from './shopping-list/shopping-list-input/shopping-list-input.component';
 import { HeaderComponent } from './header/header.component';
-import { RecipeBookComponent } from './recipe-book/recipe-book.component';
-import { RecipeBookListComponent } from './recipe-book/recipe-book-list/recipe-book-list.component';
-import { RecipeBookDetailsComponent } from './recipe-book/recipe-book-details/recipe-book-details.component';
-import { RecipeBookItemComponent } from './recipe-book/recipe-book-item/recipe-book-item.component';
 import { ServerCockpitComponent } from './playground/server-cockpit/server-cockpit.component';
 import { ServerElementComponent } from './playground/server-element/server-element.component';
 import { GameControlComponent } from './playground/number-game/game-control/game-control.component';
@@ -48,8 +42,6 @@ import { AuthGuardService } from "./auth-guard.service";
 import { CanDeactivateGuardService } from "./playground/server-management/servers/edit-server/can-deactivate-guard.service";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { ServerResolverService } from "./playground/server-management/servers/server/server-resolver.service";
-import { RecipeStartComponent } from './recipe-book/recipe-start/recipe-start.component';
-import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
 import { TemplateDrivenFormComponent } from './playground/forms/template-driven-form/template-driven-form.component';
 import { TemplateDrivenFormAssignmentComponent } from './playground/forms/template-driven-form-assignment/template-driven-form-assignment.component';
 import { ReactiveFormComponent } from './playground/forms/reactive-form/reactive-form.component';
@@ -60,14 +52,14 @@ import { FilterPipe } from './playground/pipes/filter.pipe';
 import { ReversePipe } from './playground/pipes/reverse.pipe';
 import { SortPipe } from './playground/pipes/sort.pipe';
 import { SendRequestComponent } from './playground/http/send-request/send-request.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {RecipeBookModule} from "./recipe-book/recipe-book.module";
-import {ShoppingListModule} from "./shopping-list/shopping-list.module";
-import {SharedModule} from "./shared/shared.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {AuthInterceptorService} from "./playground/http/auth-interceptor.service";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { RecipeBookModule } from "./recipe-book/recipe-book.module";
+import { ShoppingListModule } from "./shopping-list/shopping-list.module";
+import { SharedModule } from "./shared/shared.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AuthComponent } from './auth/auth.component';
-import {AuthInterceptor} from "./auth/auth.interceptor";
+import { AuthInterceptor } from "./auth/auth.interceptor";
+import { appReducer } from "./store/app.reducer";
 
 @NgModule({
   declarations: [
@@ -122,7 +114,8 @@ import {AuthInterceptor} from "./auth/auth.interceptor";
     ReactiveFormsModule,
     RecipeBookModule,
     ShoppingListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(appReducer)
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService, {
     provide: HTTP_INTERCEPTORS,

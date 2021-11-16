@@ -1,4 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Store } from "@ngrx/store";
+import { AppState } from "../../store/app.reducer";
+import { ADD_INGREDIENTS, AddIngredients } from "../../shopping-list/store/shopping-list.action";
 import {Recipe} from "../recipe.model";
 import {RecipeService} from "../recipe.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
@@ -12,7 +15,12 @@ export class RecipeBookDetailsComponent implements OnInit {
 
   recipe: Recipe | undefined
 
-  constructor(private recipeService: RecipeService, private currentRoute: ActivatedRoute, private router: Router) { }
+  constructor(
+    private recipeService: RecipeService,
+    private currentRoute: ActivatedRoute,
+    private router: Router,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
     this.currentRoute.params.subscribe((updatedParams: Params) => {
@@ -22,7 +30,8 @@ export class RecipeBookDetailsComponent implements OnInit {
 
   onAddToShoppingList() {
     if (this.recipe) {
-      this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients)
+      this.store.dispatch(new AddIngredients(this.recipe.ingredients))
+      // this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients)
     }
   }
 

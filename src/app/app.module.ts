@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 
 import { AppComponent } from './app.component';
+import { AuthEffects } from "./auth/store/auth.effects";
 import { WarningAlertComponent } from './playground/warning-alert/warning-alert.component';
 import { SuccessAlertComponent } from './playground/success-alert/success-alert.component';
 import { ServerListComponent } from './playground/server-list/server-list.component';
@@ -115,7 +117,8 @@ import { appReducer } from "./store/app.reducer";
     RecipeBookModule,
     ShoppingListModule,
     AppRoutingModule,
-    StoreModule.forRoot(appReducer)
+    StoreModule.forRoot(appReducer),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService, {
     provide: HTTP_INTERCEPTORS,

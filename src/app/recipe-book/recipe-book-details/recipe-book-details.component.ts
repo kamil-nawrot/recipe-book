@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Store } from "@ngrx/store";
+import { map, switchMap } from "rxjs/operators";
 import { AppState } from "../../store/app.reducer";
 import { ADD_INGREDIENTS, AddIngredients } from "../../shopping-list/store/shopping-list.action";
 import {Recipe} from "../recipe.model";
@@ -14,6 +15,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 export class RecipeBookDetailsComponent implements OnInit {
 
   recipe: Recipe | undefined
+  id: number
 
   constructor(
     private recipeService: RecipeService,
@@ -23,9 +25,24 @@ export class RecipeBookDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.currentRoute.params.subscribe((updatedParams: Params) => {
-      this.recipe = this.recipeService.getRecipeById(+updatedParams["id"])
-    })
+    this.currentRoute.params.pipe(
+      map(params => {
+        return +params["id"]
+      }),
+      switchMap(id => {
+        console.log("ID", id)
+        this.id = id
+        return this.store.select("recipeBook")
+      }),
+      map(recipeBookState => {
+        return recipeBookState.recipes.find((r, i) => r.id === this.id)
+      })
+    )
+    .subscribe(recipe => { this.recipe = recipe; console.log(recipe) })
+
+    // .subscribe((updatedParams: Params) => {
+    //   this.recipe = this.recipeService.getRecipeById(+updatedParams["id"])
+    // })
   }
 
   onAddToShoppingList() {

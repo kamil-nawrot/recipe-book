@@ -7,6 +7,7 @@ import {exhaustMap, map, take, tap} from "rxjs/operators";
 import {AuthService} from "../auth/auth.service"
 import {User} from "../auth/user.model";
 import * as fromApp from "../store/app.reducer"
+import * as RecipeBookActions from "../recipe-book/store/recipe-book.actions"
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,8 @@ export class DataStorageService {
         })
       }),
       tap((recipes: Recipe[]) => {
-        this.recipeService.setRecipes(recipes)
+        // this.recipeService.setRecipes(recipes)
+        this.store.dispatch(new RecipeBookActions.SetRecipes(recipes))
       })
     )
   }

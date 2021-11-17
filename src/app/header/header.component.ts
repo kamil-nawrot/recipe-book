@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
 import {Data, Router} from "@angular/router";
 import { Store } from "@ngrx/store";
 import { map } from "rxjs/operators";
+import { FetchRecipes } from "../recipe-book/store/recipe-book.actions";
 import {DataStorageService} from "../shared/data-storage.service";
 import {AuthService} from "../auth/auth.service"
 import {Subscription} from "rxjs";
@@ -38,7 +39,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onFetchData() {
-    this.dataStorageService.fetchRecipes().subscribe()
+    this.store.dispatch(new FetchRecipes())
+    // this.dataStorageService.fetchRecipes().subscribe()
   }
 
   onLogOut() {

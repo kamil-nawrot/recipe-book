@@ -31,6 +31,7 @@ import { ActiveUsersComponent } from './playground/user-manager/active-users/act
 import { InactiveUsersComponent } from './playground/user-manager/inactive-users/inactive-users.component';
 import { UsersService } from "./playground/user-manager/users.service";
 import { CounterService } from "./playground/user-manager/counter.service";
+import { RecipeBookEffects } from "./recipe-book/store/recipe-book.effects";
 import { ShoppingListService } from "./shopping-list/shopping-list.service";
 import { ServerManagementComponent } from './playground/server-management/server-management.component';
 import { HomeComponent } from "./playground/server-management/home/home.component";
@@ -120,7 +121,7 @@ import { appReducer } from "./store/app.reducer";
     ShoppingListModule,
     AppRoutingModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, RecipeBookEffects]),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
     })

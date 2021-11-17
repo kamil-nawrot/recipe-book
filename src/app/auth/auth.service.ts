@@ -55,33 +55,46 @@ export class AuthService {
     )
   }
 
-  public logOut() {
-    this.store.dispatch(new LogoutAction())
-    this.router.navigate(["auth"])
-    localStorage.removeItem("USER")
-    if(this.tokenExpirationTimer) clearTimeout(this.tokenExpirationTimer)
-  }
+  // public logOut() {
+  //   this.store.dispatch(new LogoutAction())
+  //   // localStorage.removeItem("USER")
+  //   if(this.tokenExpirationTimer) clearTimeout(this.tokenExpirationTimer)
+  // }
 
-  autoLogin() {
-    const userData = JSON.parse(localStorage.getItem("USER"))
-    if(!userData) return
-    else {
-      const user: User = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate))
-      if (user.token) {
-        this.autoLogout(user.tokenExpirationDate.getTime() - new Date().getTime())
-        this.store.dispatch(new LoginAction({
-          email: userData.email,
-          userId: userData.id,
-          token: userData._token,
-          expirationDate: userData._tokenExpirationDate}))
-      }
-    }
-  }
+  // autoLogin() {
+  //   const userData = JSON.parse(localStorage.getItem("USER"))
+  //   if(!userData) return
+  //   else {
+  //     const user: User = new User(userData.email, userData.id, userData._token, new Date(userData._tokenExpirationDate))
+  //     if (user.token) {
+  //       this.autoLogout(user.tokenExpirationDate.getTime() - new Date().getTime())
+  //       this.store.dispatch(new LoginAction({
+  //         email: userData.email,
+  //         userId: userData.id,
+  //         token: userData._token,
+  //         expirationDate: userData._tokenExpirationDate}))
+  //     }
+  //   }
+  // }
 
-  autoLogout(expirationDuration: number) {
+  // autoLogout(expirationDuration: number) {
+  //   this.tokenExpirationTimer = setTimeout(() => {
+  //     this.logOut()
+  //   }, expirationDuration)
+  // }
+
+  setLogoutTimer(expirationDuration: number) {
     this.tokenExpirationTimer = setTimeout(() => {
-      this.logOut()
+      console.log(expirationDuration)
+      this.store.dispatch(new LogoutAction())
     }, expirationDuration)
+  }
+
+  clearLogoutTimer() {
+    if (this.tokenExpirationTimer) {
+      clearTimeout(this.tokenExpirationTimer)
+      this.tokenExpirationTimer = null
+    }
   }
 
   private handleAuth(email: string, userId: string, token: string, expiresIn: number) {
@@ -89,8 +102,8 @@ export class AuthService {
     const user = new User(email, userId, token, expirationDate)
 
     this.store.dispatch(new LoginAction({ email: email, userId: userId, token: token, expirationDate: expirationDate }))
-    this.autoLogout(expiresIn * 1000)
-    localStorage.setItem("USER", JSON.stringify(user))
+    // this.autoLogout(expiresIn * 1000)
+    // localStorage.setItem("USER", JSON.stringify(user))
   }
 
   private handleError(errorRes: HttpErrorResponse): Observable<never> {

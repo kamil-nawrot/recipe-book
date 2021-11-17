@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
 
 import { AppComponent } from './app.component';
 import { AuthEffects } from "./auth/store/auth.effects";
@@ -118,7 +120,10 @@ import { appReducer } from "./store/app.reducer";
     ShoppingListModule,
     AppRoutingModule,
     StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects]),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production
+    })
   ],
   providers: [UsersService, CounterService, ShoppingListService, ServersService, AuthService, AuthGuardService, CanDeactivateGuardService, ServerResolverService, {
     provide: HTTP_INTERCEPTORS,
